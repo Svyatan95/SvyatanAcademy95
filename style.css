@@ -1,0 +1,23 @@
+table{
+    width: 100%
+}
+td{
+    text-align: center;
+    padding: 15px;
+}
+thead{
+    background-color: red;
+    color: white;
+}
+tbody{
+    background-color: violet;
+}
+tfoot{
+    background-color: aquamarine;
+}
+img{
+    width: 300px;
+}
+iframe{
+width: 500px;
+}
