@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
@@ -1037,7 +1037,7 @@ namespace Oxide.Plugins
                         else if (serverInput.WasJustPressed(controlButtons[CmdType.PlannerRotate]))
                         {
                             Vector3 vector = Vector3.zero;
-                            if (construction && construction.canRotate) vector = construction.rotationAmount;
+                            if (construction && construction.canRotateAfterPlacement) vector = construction.rotationAmount;
                             rttnOffst.x = Mathf.Repeat(rttnOffst.x + vector.x, 360f);
                             rttnOffst.y = Mathf.Repeat(rttnOffst.y + vector.y, 360f);
                             rttnOffst.z = Mathf.Repeat(rttnOffst.z + vector.z, 360f);
@@ -1091,7 +1091,7 @@ namespace Oxide.Plugins
                             else if (serverInput.WasJustPressed(controlButtons[CmdType.HammerRotate]))
                             {
                                 Vector3 vector = Vector3.zero;
-                                if (mvCnstrctn && mvCnstrctn.canRotate)
+                                if (mvCnstrctn && mvCnstrctn.canRotateAfterPlacement)
                                 {
                                     if (serverInput.IsDown(controlButtons[CmdType.HammerRotateDirection])) vector = -mvCnstrctn.rotationAmount;
                                     else vector = mvCnstrctn.rotationAmount;
@@ -1189,7 +1189,7 @@ namespace Oxide.Plugins
                                 mvCnstrctn.rotationAmount = new Vector3(0, 90f, 0);
                                 mvCnstrctn.fullName = rayEntity.PrefabName;
                                 mvCnstrctn.maxplaceDistance = rayEntity is MiningQuarry ? 8f : 4f;
-                                mvCnstrctn.canRotate = true;
+                                mvCnstrctn.canRotateAfterPlacement = true;
                             }
 
                             if (rayEntity is DecayEntity)
